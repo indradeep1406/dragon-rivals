@@ -51,13 +51,14 @@ export function createHome(component: HTMLElement, container: HTMLElement) {
         component
     );
 
+    // Leaderboard Button - Duplicated and modified from characters_button
     let leaderboard_button = supFunc.insertImage(
-        "leaderboard_button",
-        "assets/characters_button.png", // Using the same image as character button
+        "leaderboard_button", // Changed ID
+        "assets/characters_button.png", // Same asset
         80, // width
         12, // height
         50, // left
-        406, // top (300 + 12*8 + 10) - Assuming 12 is % and scaled by 8 for px, plus padding
+        420, // top (original 300 + estimated button height 100 + spacing 20)
         3,  // zIndex
         container,
         component
@@ -99,15 +100,16 @@ export function createHome(component: HTMLElement, container: HTMLElement) {
         characters_text.style.fontFamily = "CustomFont";
         characters_text.style.pointerEvents = "none";
 
+        // Leaderboard Text - Duplicated and modified from characters_text
         let leaderboard_text = supFunc.insertText(
-            "leaderboard_text",
-            "LEADERBOARD",
+            "leaderboard_text", // Changed ID
+            "LEADERBOARD", // Changed text
             "yellow",
             5, // fontSize
             74, // left
             5, // top
             50, // textLeft
-            744, // textTop (406 + 338)
+            758, // textTop (leaderboard_button.top 420 + (characters_text.textTop 638 - characters_button.top 300))
             1, // zIndex
             container,
             component
