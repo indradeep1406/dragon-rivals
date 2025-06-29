@@ -51,6 +51,18 @@ export function createHome(component: HTMLElement, container: HTMLElement) {
         component
     );
 
+    let leaderboard_button = supFunc.insertImage(
+        "leaderboard_button",
+        "assets/characters_button.png", // Using the same image as character button
+        80, // width
+        12, // height
+        50, // left
+        406, // top (300 + 12*8 + 10) - Assuming 12 is % and scaled by 8 for px, plus padding
+        3,  // zIndex
+        container,
+        component
+    );
+
     var font = new FontFace("CustomFont", "url(assets/Comfortaa-Bold.ttf)");
     font.load().then(function (loaded_face) {
         document.fonts.add(loaded_face);
@@ -86,5 +98,21 @@ export function createHome(component: HTMLElement, container: HTMLElement) {
         );
         characters_text.style.fontFamily = "CustomFont";
         characters_text.style.pointerEvents = "none";
+
+        let leaderboard_text = supFunc.insertText(
+            "leaderboard_text",
+            "LEADERBOARD",
+            "yellow",
+            5, // fontSize
+            74, // left
+            5, // top
+            50, // textLeft
+            744, // textTop (406 + 338)
+            1, // zIndex
+            container,
+            component
+        );
+        leaderboard_text.style.fontFamily = "CustomFont";
+        leaderboard_text.style.pointerEvents = "none";
     });
 }
